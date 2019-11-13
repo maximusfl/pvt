@@ -10,7 +10,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-
+    <style>
+        .fig {
+            text-align: center; /* Выравнивание по центру */ margin-top: 10%;
+        }
+    </style>
 
 
 
@@ -30,11 +34,9 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/current">Current level</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/history">Last critical values</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
+
             </ul>
         </div>
     </nav>

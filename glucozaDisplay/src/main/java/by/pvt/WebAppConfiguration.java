@@ -12,6 +12,8 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.sql.DataSource;
@@ -23,10 +25,15 @@ import java.util.Properties;
 @EnableTransactionManagement
 @PropertySource("classpath:database.properties")
 @PropertySource("classpath:hibernate.properties")
-public class WebAppConfiguration {
+public class WebAppConfiguration implements WebMvcConfigurer {
 
     @Autowired
     Environment env;
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
 
     @Bean
     InternalResourceViewResolver internalResourceViewResolver(){
