@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +23,8 @@
         <p>Online tracking glucose level</p>
     </div>
 
+
+
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <a class="navbar-brand" href="${pageContext.request.contextPath}/">GluCompas</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -38,6 +40,21 @@
                 </li>
 
             </ul>
+            <sec:authorize access="!isAuthenticated()">
+
+                    <a class="nav-link" href="${pageContext.request.contextPath}/register">Register</a>
+
+
+                    <a class="nav-link" href="${pageContext.request.contextPath}/login">Login</a>
+
+            </sec:authorize>
+            <sec:authorize access="isAuthenticated()">
+
+                    <a class="nav-link" href="${pageContext.request.contextPath}/logout">Logout</a>
+
+            </sec:authorize>
+
+
         </div>
     </nav>
 
